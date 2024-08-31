@@ -611,10 +611,6 @@ CRGB ColorFromPaletteExtended(const CRGBPalette32& pal, uint16_t index, uint8_t 
 
 CRGB ColorFromPalette( const CRGBPalette16& pal, uint8_t index, uint8_t brightness, TBlendType blendType)
 {
-   if ( blendType == LINEARBLEND_NOWRAP) {
-     index = map8(index, 0, 239);  // Blend range is affected by lo4 blend of values, remap to avoid wrapping
-   }
-
     //      hi4 = index >> 4;
     uint8_t hi4 = lsrX4(index);
     uint8_t lo4 = index & 0x0F;
@@ -700,10 +696,6 @@ CRGB ColorFromPalette( const CRGBPalette16& pal, uint8_t index, uint8_t brightne
 
 CRGB ColorFromPalette( const TProgmemRGBPalette16& pal, uint8_t index, uint8_t brightness, TBlendType blendType)
 {
-   if ( blendType == LINEARBLEND_NOWRAP) {
-     index = map8(index, 0, 239);  // Blend range is affected by lo4 blend of values, remap to avoid wrapping
-   }
-
     //      hi4 = index >> 4;
     uint8_t hi4 = lsrX4(index);
     uint8_t lo4 = index & 0x0F;
@@ -783,10 +775,6 @@ CRGB ColorFromPalette( const TProgmemRGBPalette16& pal, uint8_t index, uint8_t b
 
 CRGB ColorFromPalette( const CRGBPalette32& pal, uint8_t index, uint8_t brightness, TBlendType blendType)
 {
-   if ( blendType == LINEARBLEND_NOWRAP) {
-     index = map8(index, 0, 247);  // Blend range is affected by lo3 blend of values, remap to avoid wrapping
-   }
-
     uint8_t hi5 = index;
 #if defined(__AVR__)
     hi5 /= 2;
@@ -878,10 +866,6 @@ CRGB ColorFromPalette( const CRGBPalette32& pal, uint8_t index, uint8_t brightne
 
 CRGB ColorFromPalette( const TProgmemRGBPalette32& pal, uint8_t index, uint8_t brightness, TBlendType blendType)
 {
-   if ( blendType == LINEARBLEND_NOWRAP) {
-     index = map8(index, 0, 247);  // Blend range is affected by lo3 blend of values, remap to avoid wrapping
-   }
-
     uint8_t hi5 = index;
 #if defined(__AVR__)
     hi5 /= 2;
@@ -987,10 +971,6 @@ CRGB ColorFromPalette( const CRGBPalette256& pal, uint8_t index, uint8_t brightn
 
 CHSV ColorFromPalette( const CHSVPalette16& pal, uint8_t index, uint8_t brightness, TBlendType blendType)
 {
-   if ( blendType == LINEARBLEND_NOWRAP) {
-     index = map8(index, 0, 239);  // Blend range is affected by lo4 blend of values, remap to avoid wrapping
-   }
-
     //      hi4 = index >> 4;
     uint8_t hi4 = lsrX4(index);
     uint8_t lo4 = index & 0x0F;
@@ -1075,10 +1055,6 @@ CHSV ColorFromPalette( const CHSVPalette16& pal, uint8_t index, uint8_t brightne
 
 CHSV ColorFromPalette( const CHSVPalette32& pal, uint8_t index, uint8_t brightness, TBlendType blendType)
 {
-   if ( blendType == LINEARBLEND_NOWRAP) {
-     index = map8(index, 0, 247);  // Blend range is affected by lo3 blend of values, remap to avoid wrapping
-   }
-
     uint8_t hi5 = index;
 #if defined(__AVR__)
     hi5 /= 2;
